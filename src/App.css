@@ -1,0 +1,117 @@
+/* Full-screen radial gradient background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: radial-gradient(
+        ellipse 120% 100% at center, 
+        rgb(48, 0, 82) 25%, 
+        rgba(20, 0, 50, 0.9) 55%, 
+        black 100%
+    );
+    overflow: hidden;
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+}
+
+/* Parallax Noise Layer */
+@keyframes noise-move {
+    0% { background-position: var(--mouse-x) var(--mouse-y); }
+    50% { background-position: calc(var(--mouse-x) + 10px) calc(var(--mouse-y) + 10px); }
+    100% { background-position: var(--mouse-x) var(--mouse-y); }
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    background-repeat: repeat;
+    background-size: 466px 349px;
+    background-position: var(--mouse-x) var(--mouse-y);
+    opacity: 0.2;
+    pointer-events: none;
+    transition: background-position 0.1s ease-out;
+    animation: noise-move 5s infinite linear;
+}
+
+/* Deck (Centered at Bottom) */
+.deck-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+/* Card Styling */
+.card-style {
+    width: 150px;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+/* Drawn card */
+.drawn-card {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* Enables 3D effect */
+    z-index: 2;
+}
+
+/* Flip card container */
+.flip-card {
+    width: 150px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+/* Inner container for flipping */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+/* FIX: Apply rotation to the inner card only */
+.flipped .flip-card-inner {
+    transform: rotateY(90deg);
+}
+
+/* Front and back faces */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Front face */
+.flip-card-front {
+    background-color: transparent;
+}
+
+/* Back face */
+.flip-card-back {
+    background-color: transparent;
+    transform: rotateY(90deg);
+}
+
+.flip-stage-0 {
+    transform: rotateY(0deg);
+}
+
+.flip-stage-1 {
+    transform: rotateY(90deg);
+}
+
+.flip-stage-2 {
+    transform: rotateY(180deg);
+}
