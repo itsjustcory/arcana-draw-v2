@@ -10,17 +10,9 @@ body {
         black 100%
     );
     overflow: hidden;
-    --mouse-x: 0px;
-    --mouse-y: 0px;
 }
 
-/* Parallax Noise Layer */
-@keyframes noise-move {
-    0% { background-position: var(--mouse-x) var(--mouse-y); }
-    50% { background-position: calc(var(--mouse-x) + 10px) calc(var(--mouse-y) + 10px); }
-    100% { background-position: var(--mouse-x) var(--mouse-y); }
-}
-
+/* Static Noise Layer */
 .background {
     position: absolute;
     width: 100%;
@@ -28,11 +20,8 @@ body {
     background: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
     background-repeat: repeat;
     background-size: 466px 349px;
-    background-position: var(--mouse-x) var(--mouse-y);
     opacity: 0.2;
     pointer-events: none;
-    transition: background-position 0.1s ease-out;
-    animation: noise-move 5s infinite linear;
 }
 
 /* Deck (Centered at Bottom) */
@@ -52,14 +41,29 @@ body {
     object-fit: contain;
 }
 
-/* Drawn card */
+/* Drawn card (Initially positioned at the deck) */
 .drawn-card {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px; /* Enables 3D effect */
-    z-index: 2;
+    bottom: 20px; /* Match the deck's bottom position */
+    left: 50%; /* Match the deck's horizontal position */
+    transform: translateX(-50%); /* Align horizontally with the deck */
+    opacity: 0; /* Hidden initially */
+    transition: all 0.5s ease-in-out; /* Smooth transition for movement and visibility */
+    width: 150px; /* Match the deck's card dimensions */
+    height: 250px; /* Match the deck's card dimensions */
+    pointer-events: none; /* Prevent interaction with the card */
+}
+
+/* Unhide the card */
+.drawn-card.visible {
+    opacity: 1; /* Make the card visible */
+}
+
+/* Move the card to the center */
+.drawn-card.centered {
+    top: 50%; /* Move to the vertical center */
+    bottom: auto; /* Reset bottom position */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
 }
 
 /* Flip card container */
@@ -79,9 +83,9 @@ body {
     transform-style: preserve-3d;
 }
 
-/* FIX: Apply rotation to the inner card only */
+/* Apply rotation to the inner card when flipped */
 .flipped .flip-card-inner {
-    transform: rotateY(90deg);
+    transform: rotateY(180deg);
 }
 
 /* Front and back faces */
@@ -93,25 +97,70 @@ body {
     backface-visibility: hidden;
 }
 
-/* Front face */
-.flip-card-front {
-    background-color: transparent;
-}
-
 /* Back face */
 .flip-card-back {
-    background-color: transparent;
-    transform: rotateY(90deg);
-}
-
-.flip-stage-0 {
-    transform: rotateY(0deg);
-}
-
-.flip-stage-1 {
-    transform: rotateY(90deg);
-}
-
-.flip-stage-2 {
     transform: rotateY(180deg);
+}
+
+/* Blur and Dim Overlay */
+.blur-dim-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim the screen */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 5; /* Ensure it appears above the background but below the large card */
+    pointer-events: none; /* Prevent interaction with the overlay */
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 1s forwards; /* Fade-in animation matches the card */
+}
+
+/* Large Card Container */
+.large-card-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it appears above the overlay */
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+    text-align: center; /* Center-align text */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack the card and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+}
+
+/* Large Card Image */
+.large-card {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px; /* Add spacing between the card and the text */
+}
+
+/* Card Description Text */
+.card-description {
+    font-size: 1.2rem; /* Adjust font size as needed */
+    color: white; /* Text color */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Add a subtle shadow for readability */
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    max-width: 80%; /* Limit text width */
+    word-wrap: break-word; /* Ensure long words break properly */
+    text-align: center; /* Center-align the text */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
