@@ -25,6 +25,7 @@ const cards = [
   { id: 19, name: "The Sun", image: "/cards/the_sun.jpg", invertable: true },
   { id: 20, name: "The Judgement", image: "/cards/the_judgement.jpg", invertable: true },
   { id: 21, name: "The World", image: "/cards/the_world.jpg", invertable: true },
+  { id: 22, name: "???", image: "/cards/unknown.jpg", invertable: false },
 ];
 
 function App() {
