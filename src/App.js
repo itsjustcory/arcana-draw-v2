@@ -108,7 +108,7 @@ function App() {
             alt="Large Card Front"
             className={`large-card ${drawnCard.inverted ? "inverted" : ""}`}
           />
-          <p className="card-description">{drawnCard.description}</p>
+          <p className="card-description bold-large-text">{drawnCard.description}</p>
         </div>
       )}
     </div>
