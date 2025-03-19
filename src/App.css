@@ -102,6 +102,11 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Inverted Card Rotation */
+.inverted {
+    transform: rotate(180deg); /* Rotate the card upside down */
+}
+
 /* Blur and Dim Overlay */
 .blur-dim-overlay {
     position: fixed;
