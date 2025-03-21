@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/arcana-draw-v2/static/css/main.7d993bd2.css",
-    "main.js": "/arcana-draw-v2/static/js/main.abcf604e.js",
+    "main.css": "/arcana-draw-v2/static/css/main.28f6b624.css",
+    "main.js": "/arcana-draw-v2/static/js/main.9db1dfa6.js",
     "index.html": "/arcana-draw-v2/index.html",
-    "main.7d993bd2.css.map": "/arcana-draw-v2/static/css/main.7d993bd2.css.map",
-    "main.abcf604e.js.map": "/arcana-draw-v2/static/js/main.abcf604e.js.map"
+    "main.28f6b624.css.map": "/arcana-draw-v2/static/css/main.28f6b624.css.map",
+    "main.9db1dfa6.js.map": "/arcana-draw-v2/static/js/main.9db1dfa6.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d993bd2.css",
-    "static/js/main.abcf604e.js"
+    "static/css/main.28f6b624.css",
+    "static/js/main.9db1dfa6.js"
   ]
 }
