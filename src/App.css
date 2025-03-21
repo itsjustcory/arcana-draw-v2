@@ -30,7 +30,6 @@ body {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    cursor: pointer;
 }
 
 /* Card Styling */
@@ -175,3 +174,7 @@ body {
     font-size: 1.3rem; /* Set font size */
     font-weight: bold; /* Set font weight */
 }
+
+.clickable {
+    cursor: pointer;
+  }
