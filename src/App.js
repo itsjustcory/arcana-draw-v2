@@ -3,35 +3,35 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 const cards = [
-  { id: 0, name: "The Fool", image: "/cards/the_fool.jpg", invertable: true },
-  { id: 1, name: "The Magician", image: "/cards/the_magician.jpg", invertable: true },
-  { id: 2, name: "The High Priestess", image: "/cards/the_high_priestess.jpg", invertable: true },
-  { id: 3, name: "The Empress", image: "/cards/the_empress.jpg", invertable: true },
-  { id: 4, name: "The Emperor", image: "/cards/the_emperor.jpg", invertable: true },
-  { id: 5, name: "The Hierophant", image: "/cards/the_hierophant.jpg", invertable: true },
-  { id: 6, name: "The Lovers", image: "/cards/the_lovers.jpg", invertable: true },
-  { id: 7, name: "The Chariot", image: "/cards/the_chariot.jpg", invertable: true },
-  { id: 8, name: "Strength", image: "/cards/strength.jpg", invertable: true },
-  { id: 9, name: "The Hermit", image: "/cards/the_hermit.jpg", invertable: true },
-  { id: 10, name: "Wheel of Fortune", image: "/cards/wheel_of_fortune.jpg", invertable: true },
-  { id: 11, name: "Justice", image: "/cards/justice.jpg", invertable: true },
-  { id: 12, name: "The Hanged Man", image: "/cards/the_hanged_man.jpg", invertable: true },
-  { id: 13, name: "Death", image: "/cards/death.jpg", invertable: true },
-  { id: 14, name: "Temperance", image: "/cards/temperance.jpg", invertable: true },
-  { id: 15, name: "The Devil", image: "/cards/the_devil.jpg", invertable: true },
-  { id: 16, name: "The Tower", image: "/cards/the_tower.jpg", invertable: true },
-  { id: 17, name: "The Star", image: "/cards/the_star.jpg", invertable: true },
-  { id: 18, name: "The Moon", image: "/cards/the_moon.jpg", invertable: true },
-  { id: 19, name: "The Sun", image: "/cards/the_sun.jpg", invertable: true },
-  { id: 20, name: "The Judgement", image: "/cards/the_judgement.jpg", invertable: true },
-  { id: 21, name: "The World", image: "/cards/the_world.jpg", invertable: true },
-  { id: 22, name: "???", image: "/cards/unknown.jpg", invertable: false },
+  { id: 0, name: "The Fool", image: "./cards/the_fool.jpg", invertable: true },
+  { id: 1, name: "The Magician", image: "./cards/the_magician.jpg", invertable: true },
+  { id: 2, name: "The High Priestess", image: "./cards/the_high_priestess.jpg", invertable: true },
+  { id: 3, name: "The Empress", image: "./cards/the_empress.jpg", invertable: true },
+  { id: 4, name: "The Emperor", image: "./cards/the_emperor.jpg", invertable: true },
+  { id: 5, name: "The Hierophant", image: "./cards/the_hierophant.jpg", invertable: true },
+  { id: 6, name: "The Lovers", image: "./cards/the_lovers.jpg", invertable: true },
+  { id: 7, name: "The Chariot", image: "./cards/the_chariot.jpg", invertable: true },
+  { id: 8, name: "Strength", image: "./cards/strength.jpg", invertable: true },
+  { id: 9, name: "The Hermit", image: "./cards/the_hermit.jpg", invertable: true },
+  { id: 10, name: "Wheel of Fortune", image: "./cards/wheel_of_fortune.jpg", invertable: true },
+  { id: 11, name: "Justice", image: "./cards/justice.jpg", invertable: true },
+  { id: 12, name: "The Hanged Man", image: "./cards/the_hanged_man.jpg", invertable: true },
+  { id: 13, name: "Death", image: "./cards/death.jpg", invertable: true },
+  { id: 14, name: "Temperance", image: "./cards/temperance.jpg", invertable: true },
+  { id: 15, name: "The Devil", image: "./cards/the_devil.jpg", invertable: true },
+  { id: 16, name: "The Tower", image: "./cards/the_tower.jpg", invertable: true },
+  { id: 17, name: "The Star", image: "./cards/the_star.jpg", invertable: true },
+  { id: 18, name: "The Moon", image: "./cards/the_moon.jpg", invertable: true },
+  { id: 19, name: "The Sun", image: "./cards/the_sun.jpg", invertable: true },
+  { id: 20, name: "The Judgement", image: "./cards/the_judgement.jpg", invertable: true },
+  { id: 21, name: "The World", image: "./cards/the_world.jpg", invertable: true },
+  { id: 22, name: "???", image: "./cards/unknown.jpg", invertable: false },
 ];
 
 function App() {
   const [drawnCard, setDrawnCard] = useState({
-    frontImage: "/cards/the_fool.jpg", // Default card image
-    backImage: "/cards/card_back.jpg", // Back image (same as deck)
+    frontImage: "./cards/the_fool.jpg", // Default card image
+    backImage: "./cards/card_back.jpg", // Back image (same as deck)
     description: "", // Default description
     inverted: false, // Default inversion state
   }); // Preload card data
@@ -50,7 +50,7 @@ function App() {
     // Update the drawnCard state with the selected card's details
     setDrawnCard({
       frontImage: randomCard.image,
-      backImage: "/cards/card_back.jpg", // Keep the back image the same
+      backImage: "./cards/card_back.jpg", // Keep the back image the same
       description: `${randomCard.name} ${isInverted?'(Inverted)':''}`, // Placeholder description
       inverted: isInverted,
     });
@@ -78,7 +78,7 @@ function App() {
 
       {/* Deck */}
       <div className="deck-container" onClick={handleDeckClick}>
-        <img src="/cards/card_back.jpg" alt="Tarot Deck" className="card-style" />
+        <img src="./cards/card_back.jpg" alt="Tarot Deck" className="card-style" />
       </div>
 
       {/* Pre-rendered Drawn Card */}
