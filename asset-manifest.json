@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/arcana-draw-v2/static/css/main.7d993bd2.css",
+    "main.js": "/arcana-draw-v2/static/js/main.6ccbda55.js",
+    "index.html": "/arcana-draw-v2/index.html",
+    "main.7d993bd2.css.map": "/arcana-draw-v2/static/css/main.7d993bd2.css.map",
+    "main.6ccbda55.js.map": "/arcana-draw-v2/static/js/main.6ccbda55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7d993bd2.css",
+    "static/js/main.6ccbda55.js"
+  ]
+}
